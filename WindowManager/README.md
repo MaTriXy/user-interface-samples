@@ -1,70 +1,41 @@
+> **Warning**
+> This sample has been migraated to the new [platform-samples repository](https://github.com/android/platform-samples)
+> and will no longer be maintained. 
+> 
+> Please use the following [sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager) instead.
+>
+> Thank you for your understanding.
 
 Jetpack WindowManager Sample
 ===================================
 
-This sample demonstrates how to use the new Jetpack Window Manager library.
+This sample demonstrates how to use the new Jetpack WindowManager library.
 This library allows an application to support new device form factors as well as
 provide a common API surface for new Window Manager features throughout old and
 new platform versions. The initial release as well as this sample focuses on
 foldable devices, and will be extended to support more display types and window
 features.
 
-Introduction
-------------
+You can find Jetpack WindowManager information in the Guide: [**Learn about foldables**][0].
 
-New foldable devices are appearing on the market that provide a set of unique
-hardware features. Optimizing your app for these new devices and form-factors
-allow you to bring a differentiating experience and allow your users to take
-full advantage of whatever device they are on. The Jetpack Window Manager
-library allows you to handle all of these devices through a common API as well
-as through different versions of Android.
+[0]: https://developer.android.com/guide/topics/large-screens/learn-about-foldables
 
-You can determine what `DisplayFeatures`s are available on the device and their
-`Rect` location. The first version of the library includes support for two types
-of features: `TYPE_FOLD` and `TYPE_HINGE`. For a `TYPE_FOLD`, the bounding
-rectangle is expected to be zero-high or zero-wide indicating that there is no
-inaccessible region but still reporting the position on screen.
+Notes
+-----
 
-Besides `DisplayFeature`s, the app can also determine the `DeviceState` for the
-current configuration of the device. These are defined as different postures:
-`POSTURE_UNKNOWN`, `POSTURE_CLOSED`, `POSTURE_HALF_OPENED`, `POSTURE_OPENED`,
-`POSTURE_FLIPPED`. Each device can decide what subset of postures to report and
-when, based on their specific hardware.
-
-We also have two callbacks to be alerted of new `DeviceState` changes as well
-as `WindowLayoutInfo` changes.
-
-``` java
-//DeviceState changes
-windowManager.registerDeviceStateChangeCallback(
-    mainThreadExecutor /* Executor */,
-    callback /* Consumer<DeviceState> */)
-
-//Layout state changes
-windowManager.registerLayoutChangeCallback(
-    mainThreadExecutor /* Executor */,
-    callback /* Consumer<WindowLayoutInfo> */)
-
-```
-With these you can move your views around the `DisplayFeature`s that are
-available to provide a different UX. You can see an example of this in the
-`SplitLayoutActivity` class.
-
-This is an initial Alpha release of the library so the API surface may change
-and grow with time. Any feedback is greatly appreciated on things you would
-like to see added or changed!
+Any feedback to the library's API surface is greatly appreciated on things
+you would like to see added or changed!
 
 For more information on the Jetpack Window Manager library, see the
-[Jetpack Window Manager release page][1].
+[Jetpack Window Manager release page][99].
 
-[1]: https://developer.android.com/jetpack/androidx/releases/window
+[99]: https://developer.android.com/jetpack/androidx/releases/window
 
 Pre-requisites
 --------------
 
-- Android SDK 28
-- Android Build Tools v28.0.3
-- Android Support Repository
+- Android SDK 30
+- Android Studio Artic Fox | 2020.3.1
 
 Getting Started
 ---------------
@@ -81,4 +52,25 @@ If you've found an error in this sample, please file an issue:
 https://github.com/android/user-interface
 
 Patches are encouraged, and may be submitted by forking this project and
-submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
+submitting a pull request through GitHub. Please see CONTRIBUTING.md for more
+details.
+
+License
+-------
+
+Copyright 2020 Google, Inc.
+
+Licensed to the Apache Software Foundation (ASF) under one or more contributor
+license agreements.  See the NOTICE file distributed with this work for
+additional information regarding copyright ownership.  The ASF licenses this
+file to you under the Apache License, Version 2.0 (the "License"); you may not
+use this file except in compliance with the License.  You may obtain a copy of
+the License at
+
+  https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+License for the specific language governing permissions and limitations under
+the License.
